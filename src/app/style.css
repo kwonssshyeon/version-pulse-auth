@@ -1,0 +1,93 @@
+/* 전체 화면을 가득 채우고 가운데 정렬 */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #F7F7FF;
+}
+
+/* 컨텐츠를 중앙에 배치 */
+.content {
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+}
+
+/* 제목 */
+.title {
+    color: #BDD5EA;
+    margin-bottom: 30px;
+}
+
+/* 버튼 스타일 */
+.auth-button {
+    padding: 10px 20px;
+    background-color: #FE5F55;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.auth-button:hover {
+    background-color: #DB5249;
+}
+
+
+/* Token 박스 스타일 */
+.token-box {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    display: inline-block;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.token-box p {
+    font-family: monospace;
+    font-size: 16px;
+    word-break: break-word;
+    margin: auto 0;
+    padding-left: 10px;
+}
+
+/* Copy 버튼 스타일 */
+.copy-button {
+    padding: 8px 15px;
+    background-color: #FE5F55;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.copy-button:hover {
+    background-color: #DB5249;
+}
+
+/* 작은 화면에서 버튼 및 텍스트 크기 조정 */
+@media (max-width: 600px) {
+    .content {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .auth-button {
+        width: 100%;
+    }
+}
