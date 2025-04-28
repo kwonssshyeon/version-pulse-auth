@@ -37,15 +37,13 @@ export async function GET(request: NextRequest) {
             const errorData = await response.json();
             return NextResponse.json(errorData, { status: response.status });
         }
-
+        // accessToken을 파라미터로 넘김
         const tokenData = await response.json();
-        // 리디렉션할 URL
-        const redirectUrl = new URL('/', request.url); // 루트 페이지로 리디렉션
+        const accessToken = Buffer.from(tokenData["access_token"]).toString('base64');
 
-        // 파라미터 추가 (예: access_token을 쿼리로 넘김)
-        redirectUrl.searchParams.set('access_token', tokenData["access_token"]);
-
-        // 리디렉션 수행
+        // 메인 페이지로 리디렉션
+        const redirectUrl = new URL('/', request.url); 
+        redirectUrl.searchParams.set('access_token', accessToken);
         return NextResponse.redirect(redirectUrl.toString());
     } catch (error) {
         console.error("Error fetching token:", error);

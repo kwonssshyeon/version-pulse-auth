@@ -22,9 +22,14 @@ export default function HomePage() {
 
     useEffect(() => {
         const urlParams = new URLSearchParams(window.location.search);
-        const receivedData = urlParams.get("access_token");
-        if (receivedData) {
-            setAccessToken(receivedData);
+        const encodedAccessToken = urlParams.get("access_token");
+        if (encodedAccessToken) {
+            try {
+                const decodedAccessToken = atob(encodedAccessToken);
+                setAccessToken(decodedAccessToken);
+            } catch (error) {
+                console.error("Error decoding the access token:", error);
+            }
         }
     }, []);
 
@@ -32,8 +37,6 @@ export default function HomePage() {
         <div className="container">
             <div className="content">
                 <h1 className="title">Notion OAuth Authentication</h1>
-
-                
 
                 {/* access_token을 받아오면 표시 */}
                 {accessToken ? (
